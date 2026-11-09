@@ -53,7 +53,7 @@ export default function App() {
     return 'dark'
   })
 
-  // Theme synchronization (dark defaults to match another.* theme)
+  // Theme synchronization
   useEffect(() => {
     const root = document.documentElement
     if (theme === 'dark') {
@@ -120,25 +120,18 @@ export default function App() {
 
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
-      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)] text-xs font-semibold text-white">
-          <span className="w-2 h-2 rounded-full bg-[#00e599] animate-pulse" />
-          <span>PORTFOLIO & LAUNCHER</span>
-          <strong className="pl-2 border-l border-white/20 text-[#00e599] font-bold">another.*</strong>
-        </div>
-
+      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 flex flex-col items-center">
         {/* Hero Title */}
-        <h1 className="text-center text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/60 mb-4 leading-[1.05]">
+        <h1 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/60 mb-3 leading-[1.08]">
           another.<strong className="font-extrabold text-[#00e599]">apps</strong>
         </h1>
 
-        <p className="text-center text-base sm:text-lg text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
-          Open-source desktop tools, macOS utilities, and cross-platform clients crafted by <strong className="text-zinc-200 font-semibold">jinkun1998</strong>.
+        <p className="text-center text-sm sm:text-base text-zinc-400 max-w-lg mx-auto mb-8 leading-relaxed">
+          Open-source desktop tools, macOS utilities, and cross-platform clients by <strong className="text-zinc-200 font-semibold">jinkun1998</strong>.
         </p>
 
         {/* Search & Category Filter */}
-        <div className="w-full max-w-xl mb-12 sm:mb-16">
+        <div className="w-full max-w-lg mb-10 sm:mb-12">
           <SearchFilter
             search={search}
             onSearchChange={setSearch}
@@ -148,10 +141,10 @@ export default function App() {
           />
         </div>
 
-        {/* Centered Application Grid with Generous Spacing */}
+        {/* Centered Application Grid with Balanced Spacing */}
         <div className="w-full flex-1 flex flex-col items-center">
           {filteredApps.length > 0 ? (
-            <div className="flex flex-wrap justify-center items-stretch gap-8 sm:gap-10 md:gap-12 w-full max-w-5xl">
+            <div className="flex flex-wrap justify-center items-stretch gap-6 sm:gap-7 md:gap-8 w-full max-w-4xl">
               {filteredApps.map((app) => (
                 <AppTile key={app.name} app={app} />
               ))}
