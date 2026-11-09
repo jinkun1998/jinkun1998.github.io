@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AppItem } from '../types'
-import { ExternalLink, Sparkles } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 
 interface AppTileProps {
   app: AppItem
@@ -9,34 +9,46 @@ interface AppTileProps {
 export const AppTile: React.FC<AppTileProps> = ({ app }) => {
   const [imgError, setImgError] = useState(false)
 
+  // Format "another.xxx" with signature another.* branding
+  const renderTitle = (name: string) => {
+    if (name.startsWith('another.')) {
+      const suffix = name.slice(8)
+      return (
+        <span>
+          another.<strong className="text-[#00e599] font-bold">{suffix}</strong>
+        </span>
+      )
+    }
+    return <span>{name}</span>
+  }
+
   return (
     <a
       href={app.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/70 dark:bg-[#1a1e27]/70 hover:bg-white/95 dark:hover:bg-[#222733]/90 border border-black/[0.05] dark:border-white/[0.08] hover:border-black/10 dark:hover:border-white/20 shadow-[0_6px_20px_-4px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_32px_-6px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_18px_36px_-6px_rgba(0,0,0,0.6)] glass-tile transition-all duration-200 ease-out hover:-translate-y-1.5 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] dark:focus-visible:ring-[#2997ff]"
+      className="group relative flex flex-col items-center text-center w-full max-w-[320px] sm:max-w-[340px] p-7 sm:p-8 rounded-[28px] border border-white/15 hover:border-[#00e599]/60 bg-gradient-to-br from-white/[0.09] via-[#1d1d1f]/90 to-white/[0.04] shadow-[inset_0_1px_rgba(255,255,255,0.25),inset_0_-1px_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.6)] hover:shadow-[inset_0_1px_rgba(255,255,255,0.4),0_24px_60px_rgba(0,229,153,0.18)] another-glass transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] focus:outline-none focus-visible:ring-3 focus-visible:ring-[#2997ff]"
       aria-label={`${app.name} (${app.category})`}
     >
-      {/* Featured Badge */}
-      {app.featured && (
-        <span className="absolute top-2.5 right-2.5 flex items-center gap-1 text-[10px] font-semibold tracking-wide uppercase px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-300">
-          <Sparkles className="w-2.5 h-2.5 fill-current" />
-        </span>
-      )}
+      {/* Category Eyebrow Pill */}
+      <div className="mb-5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase text-zinc-300 border border-white/15 bg-white/[0.06] shadow-sm">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#00e599]" />
+        <span>{app.category}</span>
+      </div>
 
-      {/* App Icon (Apple Squircle) */}
-      <div className="relative my-1">
-        <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 apple-squircle overflow-hidden shadow-[0_6px_16px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_20px_rgba(0,0,0,0.45)] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+      {/* App Squircle Icon (Centered & Prominent) */}
+      <div className="relative mb-5">
+        <div className="w-20 h-20 sm:w-22 sm:h-22 apple-squircle overflow-hidden p-1 shadow-[0_12px_28px_rgba(0,0,0,0.6)] border border-white/20 bg-black/40 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
           {!imgError ? (
             <img
               src={app.icon}
               alt={`${app.name} icon`}
               loading="lazy"
               onError={() => setImgError(true)}
-              className="w-full h-full object-cover select-none pointer-events-none"
+              className="w-full h-full object-cover select-none pointer-events-none rounded-[18px]"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#0071e3] to-[#42a5f5] text-white flex items-center justify-center font-bold text-xl select-none">
+            <div className="w-full h-full bg-gradient-to-br from-[#00e599] to-[#2997ff] text-black flex items-center justify-center font-bold text-2xl select-none rounded-[18px]">
               {app.name.slice(0, 2).toUpperCase()}
             </div>
           )}
@@ -44,26 +56,25 @@ export const AppTile: React.FC<AppTileProps> = ({ app }) => {
       </div>
 
       {/* App Name */}
-      <h3 className="mt-3 text-sm sm:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight leading-snug group-hover:text-[#0071e3] dark:group-hover:text-[#2997ff] transition-colors truncate max-w-full">
-        {app.name}
+      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2.5 leading-snug">
+        {renderTitle(app.name)}
       </h3>
 
-      {/* Category Pill */}
-      <span className="mt-1 text-[11px] font-medium text-zinc-500 dark:text-zinc-400 px-2 py-0.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06]">
-        {app.category}
-      </span>
-
       {/* Short Description */}
-      {app.description && (
-        <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed px-1">
-          {app.description}
-        </p>
-      )}
+      <p className="text-sm text-zinc-400 line-clamp-3 leading-relaxed mb-6 flex-1 px-1">
+        {app.description}
+      </p>
 
-      {/* Subtle Launch Indicator on Hover */}
-      <div className="mt-auto pt-3 flex items-center gap-1 text-[11px] font-semibold text-[#0071e3] dark:text-[#2997ff] opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-        <span>Launch</span>
-        <ExternalLink className="w-3 h-3" />
+      {/* Action Button (Signature another.* Apple Pill) */}
+      <div
+        className={`w-full py-2.5 px-4 rounded-full text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-200 ${
+          app.featured
+            ? 'bg-gradient-to-r from-[#00e599] via-[#00c782] to-[#00aa6e] text-black border border-[#00e599]/80 shadow-[inset_0_1px_rgba(255,255,255,0.6),0_8px_24px_rgba(0,229,153,0.35)] group-hover:shadow-[0_12px_30px_rgba(0,229,153,0.5)] group-hover:brightness-105'
+            : 'bg-gradient-to-br from-white/15 via-white/[0.06] to-white/10 text-white border border-white/20 shadow-[inset_0_1px_rgba(255,255,255,0.25),0_8px_20px_rgba(0,0,0,0.4)] group-hover:bg-white/20'
+        }`}
+      >
+        <span>Open Application</span>
+        <ExternalLink className="w-3.5 h-3.5" />
       </div>
     </a>
   )

@@ -2,28 +2,33 @@ import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full border-t border-black/[0.06] dark:border-white/[0.08] py-8 text-center text-xs text-zinc-500 dark:text-zinc-400 mt-auto transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <footer className="relative z-10 w-full border-t border-white/[0.08] py-10 text-center text-xs text-zinc-500 mt-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p>
-          Copyright &copy; {new Date().getFullYear()} jinkun1998.
+          Copyright &copy; {new Date().getFullYear()} jinkun1998. Part of the another.* ecosystem.
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <a
-            href="https://github.com/jinkun1998/jinkun1998.github.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-800 dark:hover:text-zinc-200 hover:underline"
+            href="https://jinkun1998.github.io/another.notch/"
+            className="hover:text-white transition-colors"
           >
-            Source Code
+            another.notch
           </a>
-          <span>&middot;</span>
+          <span className="text-zinc-700">&middot;</span>
+          <a
+            href="https://jinkun1998.github.io/another.MQTT/"
+            className="hover:text-white transition-colors"
+          >
+            another.MQTT
+          </a>
+          <span className="text-zinc-700">&middot;</span>
           <a
             href="https://github.com/jinkun1998"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-zinc-800 dark:hover:text-zinc-200 hover:underline"
+            className="text-[#00e599] hover:underline font-semibold"
           >
-            GitHub Profile
+            GitHub
           </a>
         </div>
       </div>

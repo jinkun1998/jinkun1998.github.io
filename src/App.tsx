@@ -6,7 +6,6 @@ import { EmptyState } from './components/EmptyState'
 import { Footer } from './components/Footer'
 import { AppItem } from './types'
 
-// Default fallback apps if fetch fails or running in offline environment
 const DEFAULT_APPS: AppItem[] = [
   {
     name: 'another.notch',
@@ -50,12 +49,11 @@ export default function App() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme')
       if (saved === 'light' || saved === 'dark') return saved
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     }
-    return 'light'
+    return 'dark'
   })
 
-  // Theme synchronization
+  // Theme synchronization (dark defaults to match another.* theme)
   useEffect(() => {
     const root = document.documentElement
     if (theme === 'dark') {
@@ -83,16 +81,8 @@ export default function App() {
         }
       })
       .catch(() => {
-        // Fallback already pre-loaded
+        // Fallback pre-loaded
       })
-  }, [])
-
-  // Dynamic greeting based on current local hour
-  const greeting = useMemo(() => {
-    const hour = new Date().getHours()
-    if (hour < 12) return 'Good morning'
-    if (hour < 18) return 'Good afternoon'
-    return 'Good evening'
   }, [])
 
   // Unique categories
@@ -123,22 +113,32 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[radial-gradient(120%_120%_at_50%_0%,#eaf0fb_0%,#f4f6fb_45%,#eef1f6_100%)] dark:bg-[radial-gradient(120%_120%_at_50%_0%,#1e2433_0%,#111319_50%,#0a0c10_100%)] text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
+    <div className="relative min-h-screen flex flex-col bg-[#000] text-[#f5f5f7] overflow-x-hidden selection:bg-[#00e599] selection:text-black">
+      {/* another.* ambient atmosphere and grid overlays */}
+      <div className="ambient-glow" aria-hidden="true" />
+      <div className="grid-lines" aria-hidden="true" />
+
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col items-center">
-        {/* Welcome Section */}
-        <div className="text-center mb-8 max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
-            {greeting}, jinkun.
-          </h1>
-          <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
-            Open-source applications and projects hosted on GitHub.
-          </p>
+      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
+        {/* Eyebrow */}
+        <div className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)] text-xs font-semibold text-white">
+          <span className="w-2 h-2 rounded-full bg-[#00e599] animate-pulse" />
+          <span>PORTFOLIO & LAUNCHER</span>
+          <strong className="pl-2 border-l border-white/20 text-[#00e599] font-bold">another.*</strong>
         </div>
 
+        {/* Hero Title */}
+        <h1 className="text-center text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/60 mb-4 leading-[1.05]">
+          another.<strong className="font-extrabold text-[#00e599]">apps</strong>
+        </h1>
+
+        <p className="text-center text-base sm:text-lg text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
+          Open-source desktop tools, macOS utilities, and cross-platform clients crafted by <strong className="text-zinc-200 font-semibold">jinkun1998</strong>.
+        </p>
+
         {/* Search & Category Filter */}
-        <div className="w-full max-w-2xl mb-10">
+        <div className="w-full max-w-xl mb-12 sm:mb-16">
           <SearchFilter
             search={search}
             onSearchChange={setSearch}
@@ -148,10 +148,10 @@ export default function App() {
           />
         </div>
 
-        {/* Application Grid */}
-        <div className="w-full">
+        {/* Centered Application Grid with Generous Spacing */}
+        <div className="w-full flex-1 flex flex-col items-center">
           {filteredApps.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5 sm:gap-5 justify-center">
+            <div className="flex flex-wrap justify-center items-stretch gap-8 sm:gap-10 md:gap-12 w-full max-w-5xl">
               {filteredApps.map((app) => (
                 <AppTile key={app.name} app={app} />
               ))}
