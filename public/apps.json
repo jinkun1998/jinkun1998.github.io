@@ -1,0 +1,50 @@
+[
+  {
+    "name": "another.notch",
+    "description": "macOS Dynamic Island utility with music controls, HUD, calendar, quick notes, and AirDrop shelf.",
+    "url": "https://jinkun1998.github.io/another.notch/",
+    "icon": "icons/another-notch.png",
+    "category": "Utilities",
+    "featured": true
+  },
+  {
+    "name": "another.MQTT",
+    "description": "Modern cross-platform MQTT 5.0 desktop client with topic isolation and payload collection tools.",
+    "url": "https://jinkun1998.github.io/another.MQTT/",
+    "icon": "icons/another-mqtt.png",
+    "category": "Developer Tools",
+    "featured": true
+  },
+  {
+    "name": "Gemini CLI UI",
+    "description": "Responsive web interface for Google's Gemini CLI with interactive session management.",
+    "url": "https://github.com/jinkun1998/Gemini-CLI-UI",
+    "icon": "icons/gemini-cli.svg",
+    "category": "AI & ML",
+    "featured": true
+  },
+  {
+    "name": "ONNX Workbench",
+    "description": "Interactive ONNX model inspection, tensor benchmarking, and execution workbench.",
+    "url": "https://github.com/jinkun1998/onnx-workbench",
+    "icon": "icons/onnx-workbench.svg",
+    "category": "AI & ML",
+    "featured": false
+  },
+  {
+    "name": "file-sync",
+    "description": "Cross-platform background file synchronization server and client daemon.",
+    "url": "https://github.com/jinkun1998/file-sync",
+    "icon": "icons/file-sync.svg",
+    "category": "Utilities",
+    "featured": false
+  },
+  {
+    "name": "Foldable.Maui",
+    "description": "Dual-screen and foldable device components for .NET MAUI applications.",
+    "url": "https://github.com/jinkun1998/Foldable.Maui",
+    "icon": "icons/foldable-maui.svg",
+    "category": "Mobile",
+    "featured": false
+  }
+]
