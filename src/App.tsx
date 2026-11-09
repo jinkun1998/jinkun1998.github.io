@@ -120,18 +120,14 @@ export default function App() {
 
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
-      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 flex flex-col items-center">
-        {/* Hero Title */}
-        <h1 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/60 mb-3 leading-[1.08]">
+      <main className="relative z-10 flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
+        {/* Title */}
+        <h1 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/60 mb-8 sm:mb-10 leading-[1.08]">
           another.<strong className="font-extrabold text-[#00e599]">apps</strong>
         </h1>
 
-        <p className="text-center text-sm sm:text-base text-zinc-400 max-w-lg mx-auto mb-8 leading-relaxed">
-          Open-source desktop tools, macOS utilities, and cross-platform clients by <strong className="text-zinc-200 font-semibold">jinkun1998</strong>.
-        </p>
-
         {/* Search & Category Filter */}
-        <div className="w-full max-w-lg mb-10 sm:mb-12">
+        <div className="w-full max-w-lg mb-12 sm:mb-16">
           <SearchFilter
             search={search}
             onSearchChange={setSearch}
@@ -141,10 +137,10 @@ export default function App() {
           />
         </div>
 
-        {/* Centered Application Grid with Balanced Spacing */}
+        {/* Centered Application Grid with iCloud Launchpad Style */}
         <div className="w-full flex-1 flex flex-col items-center">
           {filteredApps.length > 0 ? (
-            <div className="flex flex-wrap justify-center items-stretch gap-6 sm:gap-7 md:gap-8 w-full max-w-4xl">
+            <div className="flex flex-wrap justify-center items-start gap-8 sm:gap-12 md:gap-14 max-w-3xl w-full">
               {filteredApps.map((app) => (
                 <AppTile key={app.name} app={app} />
               ))}
