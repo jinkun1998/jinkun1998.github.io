@@ -113,21 +113,20 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-[#000] text-[#f5f5f7] overflow-x-hidden selection:bg-[#00e599] selection:text-black">
-      {/* another.* ambient atmosphere and grid overlays */}
-      <div className="ambient-glow" aria-hidden="true" />
-      <div className="grid-lines" aria-hidden="true" />
+    <div className="relative min-h-screen flex flex-col bg-[#050506] text-[#f5f5f7] overflow-x-hidden selection:bg-white/20 selection:text-white">
+      {/* Apple Liquid Ambient Specular Glow */}
+      <div className="liquid-ambient" aria-hidden="true" />
 
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
-      <main className="relative z-10 flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
-        {/* Title */}
-        <h1 className="text-center text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/60 mb-8 sm:mb-10 leading-[1.08]">
-          another.<strong className="font-extrabold text-[#00e599]">apps</strong>
+      <main className="relative z-10 flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
+        {/* Apple Clean Title */}
+        <h1 className="text-center text-4xl sm:text-5xl font-bold tracking-tight text-white mb-8 sm:mb-10 leading-[1.08]">
+          another.<span className="font-semibold text-zinc-400">apps</span>
         </h1>
 
-        {/* Search & Category Filter */}
-        <div className="w-full max-w-lg mb-12 sm:mb-16">
+        {/* Liquid Glass Search & Category Filter */}
+        <div className="w-full max-w-md mb-12 sm:mb-16">
           <SearchFilter
             search={search}
             onSearchChange={setSearch}
@@ -137,7 +136,7 @@ export default function App() {
           />
         </div>
 
-        {/* Centered Application Grid with iCloud Launchpad Style */}
+        {/* Centered Application Grid with Apple Liquid Glass Polish */}
         <div className="w-full flex-1 flex flex-col items-center">
           {filteredApps.length > 0 ? (
             <div className="flex flex-wrap justify-center items-start gap-8 sm:gap-12 md:gap-14 max-w-3xl w-full">

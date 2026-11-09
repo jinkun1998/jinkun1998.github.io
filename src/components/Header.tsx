@@ -8,28 +8,28 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
   return (
-    <header className="sticky top-0 z-50 w-full another-glass bg-black/60 dark:bg-black/75 border-b border-white/[0.08] transition-colors duration-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full liquid-glass-nav transition-colors duration-200">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 h-13 flex items-center justify-between">
         {/* Brand */}
         <a
           href="#"
-          className="flex items-center gap-2 text-white hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00e599] rounded-lg px-2 py-1"
+          className="flex items-center gap-2 text-white hover:opacity-85 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-lg px-2 py-1"
           aria-label="Home"
         >
-          <span className="font-semibold text-base sm:text-lg tracking-tight text-white dark:text-white">
-            another.<strong className="font-bold text-[#00e599]">apps</strong>
+          <span className="font-medium text-base tracking-tight text-zinc-300">
+            another.<span className="font-semibold text-white">apps</span>
           </span>
-          <span className="text-[11px] font-medium text-zinc-400 dark:text-zinc-400 border border-white/15 rounded-full px-2 py-0.5 ml-1 hidden sm:inline-block">
-            by jinkun1998
+          <span className="text-[11px] font-normal text-zinc-400 border border-white/10 rounded-full px-2 py-0.5 ml-1 hidden sm:inline-block bg-white/[0.04]">
+            jinkun1998
           </span>
         </a>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Theme Toggle */}
           <button
             onClick={onToggleTheme}
-            className="p-2 rounded-full text-zinc-300 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00e599]"
+            className="p-2 rounded-full text-zinc-300 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
             href="https://github.com/jinkun1998"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-white/[0.08] hover:bg-white/[0.16] border border-white/20 shadow-sm transition-all hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00e599]"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 shadow-sm transition-all hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             aria-label="GitHub Profile"
           >
             <svg

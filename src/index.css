@@ -3,9 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --accent-green: #00e599;
-  --accent-cyan: #00d2ff;
-  --apple-blue: #2997ff;
+  --apple-blue: #0071e3;
+  --apple-blue-dark: #2997ff;
 }
 
 body {
@@ -16,8 +15,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Atmospheric ambient glow (another.* signature) */
-.ambient-glow {
+/* Apple Liquid Glass Polish - Specular Ambient Lighting */
+.liquid-ambient {
   position: fixed;
   top: 0;
   left: 50%;
@@ -27,45 +26,37 @@ body {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(0, 229, 153, 0.18), transparent 70%),
-    radial-gradient(ellipse 45% 40% at 75% 20%, rgba(41, 151, 255, 0.14), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 25% 30%, rgba(0, 210, 255, 0.10), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 255, 255, 0.09), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255, 255, 255, 0.03), transparent 60%);
 }
 
-.grid-lines {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
-}
-
-/* Light mode overrides for ambient */
-html:not(.dark) .ambient-glow {
+html:not(.dark) .liquid-ambient {
   background:
-    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(0, 200, 130, 0.12), transparent 70%),
-    radial-gradient(ellipse 45% 40% at 75% 20%, rgba(0, 113, 227, 0.10), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 25% 30%, rgba(0, 180, 220, 0.08), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 0, 0, 0.05), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0, 0, 0, 0.02), transparent 60%);
 }
 
-html:not(.dark) .grid-lines {
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-}
-
-/* Squircle & Glass */
+/* Apple Squircle Geometry */
 .apple-squircle {
   border-radius: 22.5%;
   aspect-ratio: 1 / 1;
 }
 
-.another-glass {
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+/* Apple Liquid Glass Material */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px) saturate(190%);
+  -webkit-backdrop-filter: blur(40px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 16px 40px -8px rgba(0, 0, 0, 0.5);
+}
+
+.liquid-glass-nav {
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  background: rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
