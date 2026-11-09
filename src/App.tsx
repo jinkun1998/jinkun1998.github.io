@@ -25,22 +25,6 @@ const DEFAULT_APPS: AppItem[] = [
     featured: true,
   },
   {
-    name: 'Gemini CLI UI',
-    description: 'Responsive web interface for Google\'s Gemini CLI with interactive session management.',
-    url: 'https://github.com/jinkun1998/Gemini-CLI-UI',
-    icon: 'icons/gemini-cli.svg',
-    category: 'AI & ML',
-    featured: true,
-  },
-  {
-    name: 'ONNX Workbench',
-    description: 'Interactive ONNX model inspection, tensor benchmarking, and execution workbench.',
-    url: 'https://github.com/jinkun1998/onnx-workbench',
-    icon: 'icons/onnx-workbench.svg',
-    category: 'AI & ML',
-    featured: false,
-  },
-  {
     name: 'file-sync',
     description: 'Cross-platform background file synchronization server and client daemon.',
     url: 'https://github.com/jinkun1998/file-sync',

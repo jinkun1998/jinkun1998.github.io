@@ -1,12 +1,12 @@
-# Personal App Launcher (iCloud-Inspired)
+# Personal App Launcher
 
-A minimalist static personal application launcher inspired by Apple's **iCloud.com** dashboard and macOS Launchpad. Showcases public open-source applications and tools with dynamic squircle icons, category filtering, instant search, and light/dark theme support.
+A minimalist static personal application launcher for GitHub Pages. Showcases public open-source applications and tools with dynamic squircle icons, category filtering, instant search, and light/dark theme support.
 
 ## Tech Stack
 
 - **Framework:** React 19 + TypeScript + Vite
-- **Styling:** Tailwind CSS v4 + Apple frosted glass / squircle design
-- **Icons:** Lucide React + custom SVG Apple squircles
+- **Styling:** Tailwind CSS v4 + glassmorphism & squircle design
+- **Icons:** Lucide React + custom SVG squircles
 - **Deployment:** GitHub Pages via GitHub Actions
 
 ---
@@ -38,14 +38,14 @@ Edit `public/apps.json`. The launcher UI dynamically renders all entries from th
 | `description` | `string` | Short description shown on the tile. |
 | `url` | `string` | Target URL opened in a new tab when clicked. |
 | `icon` | `string` | Path relative to `public/` (e.g., `icons/my-app.png` or `icons/my-app.svg`). |
-| `category` | `string` | Grouping tag (e.g., `Utilities`, `Developer Tools`, `AI & ML`, `Mobile`). |
+| `category` | `string` | Grouping tag (e.g., `Utilities`, `Developer Tools`, `Mobile`). |
 | `featured` | `boolean` | When `true`, shows a gold star badge in the corner. |
 
 ### Adding an App Icon
 
 1. Place your 1:1 square icon (`.png`, `.svg`, or `.webp`) in `public/icons/`.
 2. Reference it in `public/apps.json` as `icons/<filename>`.
-3. The launcher automatically clips the icon to an Apple-style continuous squircle with responsive dimensions and elevation shadow.
+3. The launcher automatically clips the icon to a continuous squircle with responsive dimensions and elevation shadow.
 
 ---
 
