@@ -24,7 +24,15 @@ const DEFAULT_APPS: AppItem[] = [
     featured: true,
   },
   {
-    name: 'anotherMessenger',
+    name: 'another.Music',
+    description: 'Native music player for macOS & Android with intelligent AutoMix, turntable vinyl UI, and synced lyrics.',
+    url: 'https://jinkun1998.github.io/another.Music/',
+    icon: 'icons/another-music.png',
+    category: 'Media',
+    featured: true,
+  },
+  {
+    name: 'another.Messenger',
     description: 'Every chat in one place. Fast, private, protected by Touch ID.',
     url: 'https://jinkun1998.github.io/another.Messenger/',
     icon: 'icons/another-messenger.png',
