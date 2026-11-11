@@ -16,6 +16,14 @@
     "featured": true
   },
   {
+    "name": "anotherMessenger",
+    "description": "Lightweight multi-service chat client for macOS with isolated accounts, Touch ID lock, and 718+ services.",
+    "url": "https://jinkun1998.github.io/another.Messenger/",
+    "icon": "icons/another-messenger.png",
+    "category": "Communication",
+    "featured": true
+  },
+  {
     "name": "file-sync",
     "description": "Cross-platform background file synchronization server and client daemon.",
     "url": "https://github.com/jinkun1998/file-sync",
