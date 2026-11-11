@@ -25,7 +25,7 @@ const DEFAULT_APPS: AppItem[] = [
   },
   {
     name: 'anotherMessenger',
-    description: 'Lightweight multi-service chat client for macOS with isolated accounts, Touch ID lock, and 718+ services.',
+    description: 'Every chat in one place. Fast, private, protected by Touch ID.',
     url: 'https://jinkun1998.github.io/another.Messenger/',
     icon: 'icons/another-messenger.png',
     category: 'Communication',
