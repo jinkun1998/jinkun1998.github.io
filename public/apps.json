@@ -8,6 +8,14 @@
     "featured": true
   },
   {
+    "name": "another.Music",
+    "description": "Native music player for macOS & Android with intelligent AutoMix, turntable vinyl UI, and synced lyrics.",
+    "url": "https://jinkun1998.github.io/another.Music/",
+    "icon": "icons/another-music.png",
+    "category": "Media",
+    "featured": true
+  },
+  {
     "name": "another.MQTT",
     "description": "Modern cross-platform MQTT 5.0 desktop client with topic isolation and payload collection tools.",
     "url": "https://jinkun1998.github.io/another.MQTT/",
