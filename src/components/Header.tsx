@@ -1,12 +1,6 @@
 import React from 'react'
-import { Sun, Moon } from 'lucide-react'
 
-interface HeaderProps {
-  theme: 'light' | 'dark'
-  onToggleTheme: () => void
-}
-
-export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
+export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full liquid-glass-nav transition-colors duration-200">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-13 flex items-center justify-between">
@@ -26,20 +20,6 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Theme Toggle */}
-          <button
-            onClick={onToggleTheme}
-            className="p-2 rounded-full text-zinc-300 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-          >
-            {theme === 'light' ? (
-              <Moon className="w-4 h-4 text-zinc-200" />
-            ) : (
-              <Sun className="w-4 h-4 text-amber-300" />
-            )}
-          </button>
-
           {/* GitHub Capsule */}
           <a
             href="https://github.com/jinkun1998"
